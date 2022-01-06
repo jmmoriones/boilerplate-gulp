@@ -1,0 +1,96 @@
+mixin menu(url, name)
+	li #[a(href=`${url}`) #{name}]
+mixin pic(name, ext)
+	picture
+		source(srcset=`images/webp/${name}.webp`, type="image/webp")
+		img(src=`images/${name}.${ext}`)
+doctype html
+html(lang="es")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		meta(name="description", content="Este es mi contenido")
+		title= title
+		link(rel="shortcut icon", type="image/png", href="images/favicon.png")
+		// build:css css/codigos.min.css
+		each css in files.CSS
+			link(rel="stylesheet", href=`../${css}`)
+		// endbuild
+body
+	header.container-full.header.center
+		nav.container.nav
+			ul.item.p0.flex.flex-wrap.jc-center.ai-center
+				+menu("#html", "HTML")
+				+menu("#css", "CSS")
+				+menu("#javascript", "JAVASCRIPT")
+				+menu("#sass", "SASS")
+				li
+					+pic("logo-pug", "png")
+				+menu("#pug", "PUG")
+				+menu("#sublime", "SUBLIME TEXT")
+				+menu("#mysql", "MySQL")
+				+menu("#frontend", "FRONTEND")
+	section#html.container.section
+		h2.title.center.animated.wow.zoomIn HTML 5
+		+pic("bannerhtml5", "png")
+		article.item.ph12.lg10.mauto.animated.wow.fadeInRightBig
+			p HTML (Lenguaje de Marcas de Hipertexto, del inglés HyperText Markup Language) es el componente más básico de la Web. Define el significado y la estructura del contenido web. Además de HTML, generalmente se utilizan otras tecnologías para describir la apariencia/presentación de una página web <b>(CSS)</b> o la funcionalidad/comportamiento <b>(JavaScript)</b>.
+			p "Hipertexto" hace referencia a los enlaces que conectan páginas web entre sí, ya sea dentro de un único sitio web o entre sitios web. Los enlaces son un aspecto fundamental de la Web. Al subir contenido a Internet y vincularlo a las páginas creadas por otras personas, te conviertes en un participante activo en la <b>«World Wide Web»</b> (Red Informática Mundial).
+	section#css.container.section
+		h2.title.center.animated.wow.zoomIn CSS 3
+		+pic("bannercss3", "jpg")
+		article.item.ph12.lg10.mauto.animated.wow.fadeInRightBig
+			p La hoja de estilo en cascada o CSS (siglas en inglés de cascading style sheets) es un lenguaje usado para definir la presentación de un documento estructurado escrito en HTML y derivados. El <b>W3C</b> es el encargado de formular la especificación de las hojas de estilo que servirán de estándar para los agentes de usuario o navegadores.
+			p La idea que se encuentra detrás del desarrollo de CSS es separar la estructura de un documento de su presentación.
+			p La información de estilo se define en un documento separado, anteriormente se manejaba o en el mismo documento HTML, pero esto genera malas practicas. En este último caso podrían definirse estilos generales en la cabecera del documento o en cada etiqueta particular mediante las etiquetas <b>«style»«/style»</b>.
+	section#javascript.container.section
+		h2.title.center.animated.wow.zoomIn JAVASCRIPT
+		+pic("bannerjavascript", "jpg")
+		article.item.ph12.lg10.mauto.animated.wow.fadeInRightBig
+			p JavaScript es un lenguaje de programación o de secuencias de comandos que te permite implementar funciones complejas en páginas web, cada vez que una página web hace algo más que sentarse allí y mostrar información estática para que la veas, muestra oportunas actualizaciones de contenido, mapas interactivos, animación de Gráficos 2D/3D, desplazamiento de máquinas reproductoras de vídeo, etc., puedes apostar que probablemente JavaScript está involucrado. Es la tercera capa del pastel de las tecnologías web estándar, dos de las cuales <b>(HTML y CSS)</b> hemos cubierto con mucho más detalle en otras partes del Área de aprendizaje.
+	section#sass.container.section
+		h2.title.center.animated.wow.zoomIn SASS
+		+pic("bannersass", "jpg")
+		article.item.ph12.lg10.mauto.animated.wow.fadeInRightBig
+			p Sass es un metalenguaje de Hojas de Estilo en Cascada (CSS). Es un lenguaje de script que es traducido a CSS, SassScript es el lenguaje de script en sí mismo. Sass consiste en dos sintaxis. La sintaxis original, llamada indented syntax <b>(«sintaxis con sangrado»)</b> que usa una sintaxis similar al Haml.3? Este usa la sangría para separar bloques de código y el carácter nueva línea para separar reglas. La sintaxis más reciente, SCSS, usa el formato de bloques como CSS. Este usa llaves para denotar bloques de código y punto y coma (;) para separar las líneas dentro de un bloque. La sintaxis indentada y los ficheros SCSS tienen las extensiones .sass y .scss respectivamente.
+			p CSS3 consiste en una serie de selectores y pseudo-selectores que agrupan las reglas que son aplicadas. Sass (en el amplio contexto de ambas sintaxis) extiende CSS proveyendo de varios mecanismos que están presentes en los lenguajes de programación tradicionales, particularmente lenguajes orientados a objetos, pero este no está disponible para CSS3 como tal. Cuando SassScript se interpreta, este crea bloques de reglas CSS para varios selectores que están definidos en el fichero SASS. El intérprete de SASS traduce SassScript en CSS. Alternativamente, Sass puede monitorear los ficheros .sass o .scss y convertirlos en un fichero .css de salida cada vez que el fichero .sass o .scss es guardado.4? Sass es simplemente azúcar sintáctica para escribir CSS.
+	section#pug.container.section
+		h2.title.center.animated.wow.zoomIn PUG
+		+pic("bannerpug", "png")
+		article.item.ph12.lg10.mauto.animated.wow.fadeInRightBig
+			p ¿Qué es Pug? Es un motor de plantillas para aplicaciones Node.js del lado del servidor.
+			p Express es capaz de manejar motores de plantillas del lado del servidor. Los motores de plantilla nos permiten agregar datos a una vista y generar HTML de forma dinámica.
+			p Pug es el nuevo nombre de una cosa vieja. EsJade 2.0.
+			p Debido a un problema de marca registrada, el nombre se cambió de Jade a Pug cuando el proyecto lanzó la versión 2 en 2016. Aún puedes usar Jade (también conocido como Pug 1.0), pero en el futuro es mejor usar Pug 2.0.
+			p Express usa Jade como predeterminado. Como se mencionó anteriormente, Jade es la versión anterior de Pug, específicamente Pug 1.0.
+			p Aunque la última versión de Jade tiene 3 años (en el momento de escribir este artículo, verano de 2018), sigue siendo la predeterminada en Express por razones de compatibilidad con versiones anteriores.
+			p El sitio web oficial de Pug es <a href="https://pugjs.org" target="_blank">https://pugjs.org/</a>.
+	section#sublime.container.section
+		h2.title.center.animated.wow.zoomIn SUBLIME TEXT
+		+pic("bannersublime", "jpg")
+		article.item.ph12.lg10.mauto.animated.wow.fadeInRightBig
+			p Sublime Text es un editor de texto avanzado que soporta multitud de lenguajes como ASP, C, C++, C#, CSS, D, Erlang, Groovy, Haskell, HTML, Java, Javascript, LaText, Lisp, Lua, Markdown, Matlab, Ocaml, Pascal, Perl, Perl, PHP, Python, R, Ruby, SQL, TCL, Textile y XML entre otros.
+			p Sublime Text es multiplataforma, disponible para Linux, Windows y XO S. Es un programa de pago, la licencia individual cuesta 70$ aunque se puede descargar una versión de prueba que tiene tiempo ilimitado.
+			p Es un editor que puede ser muy personalizado aunque por defecto tiene un fondo negro con las palabras reservadas por el lenguaje tienen un color distinto al resto y todas llamativas, gracias a esto, hace que aumente la concentración a la hora de escribir código.
+			p Comenzamos descargando el programa de este enlace: <a href="https://www.sublimetext.com/3" target="_blank">https://www.sublimetext.com/3</a>
+			p Si tenemos Windows en nuestro ordenador, la selección de color rojo es la que tenemos que marcar, la versión portable, no necesita instalación previa en un ordenador que posea ese mismo sistema operativo.
+			p Cuando pinchamos en el ejecutable, damos permisos para la instalación.
+	section#mysql.container.section
+		h2.title.center.animated.wow.zoomIn MYSQL
+		+pic("bannermysql", "png")
+		article.item.ph12.lg10.mauto.animated.wow.fadeInRightBig
+			p MySQL es un sistema de gestión de bases de datos relacionales <b>(RDBMS)</b> de código abierto respaldado por Oracle y basado en el lenguaje de consulta estructurado <b>(SQL)</b>. MySQL funciona prácticamente en todas las plataformas, incluyendo Linux, UNIX y Windows. Aunque puede utilizarse en una amplia gama de aplicaciones, MySQL se asocia más a menudo con las aplicaciones web y la publicación en línea.
+			p MySQL es un componente importante de una pila empresarial de código abierto llamada LAMP. LAMP es una plataforma de desarrollo web que utiliza Linux como sistema operativo, Apache como servidor web, MySQL como sistema de gestión de bases de datos relacionales y PHP como lenguaje de scripting orientado a objetos (a veces se utiliza Perl o Python en lugar de PHP).
+			p Originalmente concebido por la empresa sueca MySQL AB, MySQL fue adquirido por Sun Microsystems en 2008 y luego por Oracle cuando compró Sun en 2010. Los desarrolladores pueden utilizar MySQL bajo la licencia pública general GNU <b>(GPL)</b>, pero las empresas deben obtener una licencia comercial de Oracle.
+	section#frontend.container.section
+		h2.title.center.animated.wow.zoomIn FRONTEND
+		+pic("bannerfrontback", "png")
+		article.item.ph12.lg10.mauto.animated.wow.fadeInRightBig
+			p Frontend es la parte de un programa o dispositivo a la que un usuario puede acceder directamente. Son todas las tecnologías de diseño y desarrollo web que corren en el navegador y que se encargan de la interactividad con los usuarios.
+			p Los desarrolladores frontend son aquellos que crean los componentes visuales de un sitio web. Dan formato a las imágenes, la animación y la interactividad de un sitio web.
+			p Backend es la capa de acceso a datos de un software o cualquier dispositivo, que no es directamente accesible por los usuarios. Además, contiene la lógica de la aplicación que maneja dichos datos. El Backend también accede al servidor, que es una aplicación especializada que entiende la forma en la que el navegador hace solicitudes.
+			p Los desarrolladores backend se encargan de hacer que la lógica del sitio funcione correctamente, la información se transmita de manera segura y el desempeño de la aplicación no entorpezca la experiencia del usuario.
+	// build:js js/codigos.min.js
+	each js in files.JS
+			script(src=`../${js}`)
+	// endbuild
